@@ -1,18 +1,21 @@
 JIRA Mindmap Planner for Astah
 
-[開発について]
-1. pom.xmlのastah.homeプロパティに、astah-pro.jarのあるパスを指定する。
-Mac: /Applications/astah professional/astah professional.app/Contents/Resources/Java
+JIRA Mindmap Planner for Astah provides a whole new way of agile project planning for your team. For release planning and iteration planning, a team breaks down epics, stories, tasks and issues and then assigns them to team members. To manage the project planning, JIRA shows them in a list, GreenHopper does in Kanban. Have you wished there were any other effective ways?
 
-2-A. 拡張や修正などソースコードの変更が必要であれば、下記のようにgit cloneして、mvn installする。
-Apache License Version 2.0であるためライセンス的に問題はない。
-$ git clone git@github.com:shoito/jira-commons.git
+So we looked at the great possibilities of Mind Map and found a new value of it in a project planning which is a new visualizing way of tasks we propose, "Mindmap planning". With Mindmap planning, you can import issues from JIRA and map them into Mind Map. To assign them to team members, all you do is to drag & drop the issue branches under the assigner's branch.
 
-2-B. ビルド前に、JIRAのモデルを操作するためのライブラリをインストールする。
-mvn install:install-file -Dfile=lib/jira-commons-0.1.0.jar -DgroupId=com.github.jira -DartifactId=jira-commons -Dversion=0.1.0 -Dpackaging=jar -DgeneratePom=true
+You can also view the issues in different perspectives. For instance, if you want to see them in an iteration-base to see what issues the iteration holds, you can switch the view to "Iteration", if you want to see who has what issues, you can have a view of issues on assigned-member base, and Issue Type-base (Tasks, bugs, improvements) and others.
 
+One of the great things about Mindmap, the bird view, can tell the balance of tasks in an iteration, process, load of assigned tasks per person visually at a glance. You can quickly catch overloading situation and to have the solutions before they turn into real problems.
 
-[プラグインの使用について]
-下記メニューが追加されているため、そこから接続するJIRAサーバーを設定し課題をマインドマップに取り込む。
-  ツール - マインドマッププランニング - JIRA課題インポート
+About installation:
+JIRA Mindmap Planner for Astah is a Plug-in for Astah. (Not installing into JIRA)
 
+Download Astah and deploy "mindmap-planner-1.0.0.jar" in the Astah Installation folder/plugins
+
+Release Notes:
+This is the initial release of JIRA Mindmap Planner for Astah.
+
+Features:
+Import JIRA issues into Astah (System Design Tool - astah.net)
+Map JIRA issues into Mind Maps and switch views of issues by a release, iteration, assigned team members
