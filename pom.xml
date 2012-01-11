@@ -234,14 +234,14 @@
 <!--      <dependency>
       <groupId>com.change_vision.astah</groupId>
       <artifactId>astah-pro</artifactId>
-      <version>6.5.1-SNAPSHOT</version>
+      <version>6.5.1</version>
       <scope>system</scope>
       <systemPath>${astah.home}/astah-pro.jar</systemPath>
     </dependency> -->
     <dependency>
       <groupId>com.change_vision.astah</groupId>
       <artifactId>astah-api</artifactId>
-      <version>6.5.1-SNAPSHOT</version>
+      <version>6.5.1</version>
       <scope>system</scope>
       <systemPath>${astah.home}/astah-api.jar</systemPath>
     </dependency>
@@ -262,7 +262,7 @@
     <dependency>
       <groupId>com.github.jira</groupId>
       <artifactId>jira-commons</artifactId>
-      <version>0.1.0-SNAPSHOT</version>
+      <version>0.1.0</version>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
