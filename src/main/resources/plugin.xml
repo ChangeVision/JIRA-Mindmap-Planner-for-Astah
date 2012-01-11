@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension point="com.change_vision.astah.ui.actionSets">
+      <actionSet
+            label="%action_set_label"
+            visible="true"
+            id="com.change_vision.astah.extension.plugin.mindmapplanner.actionSet">
+         <menu label="%mp_label" id="mindmapplanner" path="tool/mindmap"></menu>
+         <action
+			   label="%import_label"
+               class="com.change_vision.astah.extension.plugin.mindmapplanner.action.ImportAction"
+               tooltip="%import_label"
+               menubarPath="tool/mindmapplanner/"
+               id="importJiraIssue">
+         </action>
+     </actionSet>
+   </extension>
+</plugin>

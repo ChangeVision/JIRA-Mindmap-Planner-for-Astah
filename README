@@ -1,0 +1,18 @@
+JIRA Mindmap Planner for Astah
+
+[開発について]
+1. pom.xmlのastah.homeプロパティに、astah-pro.jarのあるパスを指定する。
+Mac: /Applications/astah professional/astah professional.app/Contents/Resources/Java
+
+2-A. 拡張や修正などソースコードの変更が必要であれば、下記のようにgit cloneして、mvn installする。
+Apache License Version 2.0であるためライセンス的に問題はない。
+$ git clone git@github.com:shoito/jira-commons.git
+
+2-B. ビルド前に、JIRAのモデルを操作するためのライブラリをインストールする。
+mvn install:install-file -Dfile=lib/jira-commons-0.1.0.jar -DgroupId=com.github.jira -DartifactId=jira-commons -Dversion=0.1.0 -Dpackaging=jar -DgeneratePom=true
+
+
+[プラグインの使用について]
+下記メニューが追加されているため、そこから接続するJIRAサーバーを設定し課題をマインドマップに取り込む。
+  ツール - マインドマッププランニング - JIRA課題インポート
+
