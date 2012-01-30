@@ -263,19 +263,22 @@
       <artifactId>swingx-core</artifactId>
       <version>1.6.2-2</version>
     </dependency>
-<!--      <dependency>
+    <!-- for Astah Professional user setting -->
+    <!--
+    <dependency>
       <groupId>com.change_vision.astah</groupId>
       <artifactId>astah-pro</artifactId>
       <version>6.5.1</version>
       <scope>system</scope>
       <systemPath>${astah.home}/astah-pro.jar</systemPath>
-    </dependency> -->
+    </dependency>
+         -->
     <dependency>
       <groupId>com.change_vision.astah</groupId>
       <artifactId>astah-api</artifactId>
       <version>6.5.1</version>
       <scope>system</scope>
-      <systemPath>${astah.home}/astah-api.jar</systemPath>
+      <systemPath>${astahPath}/astah-api.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
