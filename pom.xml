@@ -2,7 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <properties>
-    <astah.home>/Applications/astah professional/astah professional.app/Contents/Resources/Java</astah.home>
+    <!-- Path to your Astah's Home Directory. This example is for Mac -->
+    <astahPath>/Applications/astah professional/astah professional.app/Contents/Resources/Java</astahPath>
+
     <bundle.symbolicName>com.change_vision.astah.extension.plugin.mindmap-planner</bundle.symbolicName>
     <bundle.namespace>com.change_vision.astah.extension.plugin.mindmapplanner</bundle.namespace>
     <plugin.install>true</plugin.install>
@@ -18,7 +20,7 @@
     <pluginRepository>
       <id>local_astah_repository</id>
       <name>Local Astah* Plugin Repository</name>
-      <url>file://${env.ASDK_HOME}/repository/</url>
+      <url>file://${env.M2_HOME}/repository/</url>
       <layout>default</layout>
       <snapshots>
         <enabled>true</enabled>
@@ -47,6 +49,11 @@
       <id>maven-restlet</id>
       <name>Public online Restlet repository</name>
       <url>http://maven.restlet.org</url>
+    </repository>
+    <repository>
+      <id>cv-libraries</id>
+      <name>Change Vision Libralies</name>
+      <url>http://github.com/ChangeVision/maven-repo/raw/master/release</url>
     </repository>
   </repositories>
   <reporting>
