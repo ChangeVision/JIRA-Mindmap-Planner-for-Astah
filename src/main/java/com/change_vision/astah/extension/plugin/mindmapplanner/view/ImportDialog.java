@@ -42,7 +42,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeSelectionModel;
 
-
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
 import org.slf4j.Logger;
@@ -53,10 +52,10 @@ import com.change_vision.astah.extension.plugin.mindmapplanner.MindmapCreator;
 import com.change_vision.astah.extension.plugin.mindmapplanner.model.FieldEnum;
 import com.change_vision.astah.extension.plugin.mindmapplanner.model.ValueEnum;
 import com.change_vision.astah.extension.plugin.mindmapplanner.util.AstahProjectUtils;
+import com.change_vision.astah.extension.plugin.mindmapplanner.util.AstahProjectUtils.UserObject;
 import com.change_vision.astah.extension.plugin.mindmapplanner.util.ConfigurationUtils;
 import com.change_vision.astah.extension.plugin.mindmapplanner.util.JiraClientUtils;
 import com.change_vision.astah.extension.plugin.mindmapplanner.util.RequestUtils;
-import com.change_vision.astah.extension.plugin.mindmapplanner.util.AstahProjectUtils.UserObject;
 import com.change_vision.astah.extension.plugin.mindmapplanner.view.component.Guide;
 import com.change_vision.astah.extension.plugin.mindmapplanner.view.model.RootComboBoxModel;
 import com.change_vision.astah.extension.plugin.mindmapplanner.view.model.SubComboBoxModel;
@@ -273,7 +272,9 @@ public class ImportDialog extends JDialog {
 		StringBuilder jqlBuilder = new StringBuilder();
 		jqlBuilder.append(IssueFields.PROJECT);
 		jqlBuilder.append("=");
+		jqlBuilder.append("'");
 		jqlBuilder.append(project.getKey());
+		jqlBuilder.append("'");
 		
 		String rootQueryPart = RequestUtils.buildQueryPart((FieldEnum) rootBox.getSelectedItem(), rootValueList);
 		if (StringUtils.isNotBlank(rootQueryPart)) {

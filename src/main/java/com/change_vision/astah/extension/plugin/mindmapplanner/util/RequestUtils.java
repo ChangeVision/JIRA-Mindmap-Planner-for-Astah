@@ -8,7 +8,6 @@ import java.util.Map;
 import javax.swing.JList;
 import javax.swing.ListModel;
 
-
 import org.apache.commons.lang.ArrayUtils;
 
 import com.change_vision.astah.extension.plugin.mindmapplanner.model.FieldEnum;
@@ -86,7 +85,8 @@ public class RequestUtils {
 					jqlBuilder.append(", ");
 				}
 
-				String name = (String) ((Map<String, Object>) value).get("name");
+				String paramKey = field.getParamKey();
+				String name = (String) ((Map<String, Object>) value).get(paramKey);
 				jqlBuilder.append("'");
 				jqlBuilder.append(name.replace("'", "\\'"));
 				jqlBuilder.append("'");

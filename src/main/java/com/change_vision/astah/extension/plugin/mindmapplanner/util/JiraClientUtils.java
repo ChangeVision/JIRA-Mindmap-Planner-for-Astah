@@ -1,9 +1,9 @@
 package com.change_vision.astah.extension.plugin.mindmapplanner.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-
 
 import org.apache.commons.lang.StringUtils;
 import org.json.JSONException;
@@ -94,7 +94,9 @@ public class JiraClientUtils {
 			Set<User> users = new HashSet<User>();
 			SearchResults issues;
 			try {
-				String jql = IssueFields.PROJECT + "=" + project.getKey();
+				HashMap<String, Object> params = new HashMap<String, Object>();
+				params.put(IssueFields.PROJECT, project.getKey());
+				String jql = RequestUtils.buildQueryParameters(params);
 				issues = JiraClientUtils.searchIssues(jira, jql, fields, DEFAULT_START_AT, DEFAULT_MAX_RESULTS);
 				for (Issue issue : issues.getIssues()) {
 					User assignee = issue.getFields().getAssignee();
