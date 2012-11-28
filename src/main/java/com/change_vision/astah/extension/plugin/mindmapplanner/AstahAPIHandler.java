@@ -2,7 +2,6 @@ package com.change_vision.astah.extension.plugin.mindmapplanner;
 
 import javax.swing.JFrame;
 
-
 import com.change_vision.astah.extension.plugin.mindmapplanner.exception.APIException;
 import com.change_vision.jude.api.inf.editor.BasicModelEditor;
 import com.change_vision.jude.api.inf.editor.IDiagramEditorFactory;
@@ -58,12 +57,16 @@ public class AstahAPIHandler {
 	}
 
 	public JFrame getMainFrame() {
-		return getProjectAccessor().getViewManager().getMainFrame();
+		return getViewManager().getMainFrame();
 	}
 
 	private IViewManager getViewManager() {
-		ProjectAccessor projectAccessor = getProjectAccessor();
-		IViewManager viewManager = projectAccessor.getViewManager();
+		IViewManager viewManager = null;
+        try {
+            viewManager = getProjectAccessor().getViewManager();
+        } catch (InvalidUsingException e) {
+            throw new IllegalStateException(e);
+        }
 		if(viewManager == null) throw new IllegalStateException("ViewManager must not be null.");
 		return viewManager;
 	}
