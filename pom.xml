@@ -208,6 +208,7 @@
             <!-- | each module can override these defaults in their osgi.bnd file -->
             <_include>-osgi.bnd</_include>
             <Embed-Dependency>*;scope=compile|runtime;type=!pom</Embed-Dependency>
+            <Embed-Transitive>true</Embed-Transitive>
           </instructions>
         </configuration>
       </plugin>
