@@ -25,7 +25,6 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
