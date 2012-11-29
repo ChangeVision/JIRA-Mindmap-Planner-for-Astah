@@ -3,6 +3,7 @@ package com.change_vision.astah.extension.plugin.mindmapplanner.view;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
 import java.awt.GridLayout;
@@ -38,6 +39,8 @@ import javax.swing.LayoutStyle;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.WindowConstants;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeSelectionModel;
@@ -421,6 +424,8 @@ public class ImportDialog extends JDialog {
         		}
         	}
         });
+        projectBox.addPopupMenuListener(new MinWidthPopupMenuListener());
+        projectBox.setPreferredSize(new Dimension(159, 25));
 
         projectLabel.setText(Messages.getMessage("ImportDialog.projectLabel.text"));
         projectLabel.setName("projectLabel");
@@ -775,4 +780,31 @@ public class ImportDialog extends JDialog {
     private JPanel imagePanel = new JPanel();
     private JTabbedPane tabbedPane = new JTabbedPane();
     private Guide guide = new Guide();
+    
+    class MinWidthPopupMenuListener implements PopupMenuListener {
+        private static final int POPUP_MIN_WIDTH = 320;
+        private boolean adjusting = false;
+
+        @Override
+        public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+            JComboBox<Object> combo = (JComboBox<Object>) e.getSource();
+            Dimension size = combo.getSize();
+            if (size.width >= POPUP_MIN_WIDTH) return;
+            if (!adjusting) {
+                adjusting = true;
+                combo.setSize(POPUP_MIN_WIDTH, size.height);
+                combo.showPopup();
+            }
+            combo.setSize(size);
+            adjusting = false;
+        }
+
+        @Override
+        public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+        }
+
+        @Override
+        public void popupMenuCanceled(PopupMenuEvent e) {
+        }
+      }
 }
