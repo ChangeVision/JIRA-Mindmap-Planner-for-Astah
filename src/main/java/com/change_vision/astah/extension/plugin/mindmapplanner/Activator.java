@@ -10,7 +10,6 @@ import java.io.InputStream;
 
 import javax.xml.bind.JAXB;
 
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -32,11 +31,6 @@ public class Activator implements BundleActivator {
 	private AstahAPIHandler handler;
 
 	public void start(BundleContext context) {
-		EditionChecker checker = new EditionChecker();
-		if (checker.hasError()) {
-			return;
-		}
-		
 		tracker = new ServiceTracker(context, IMessageDialogHandlerFactory.class.getName(), null);
 		tracker.open();
 		

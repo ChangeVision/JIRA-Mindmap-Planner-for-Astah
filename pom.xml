@@ -2,17 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <properties>
-    <!-- Path to your Astah's Home Directory. This example is for Mac -->
-    <astahPath>/Applications/astah professional/astah professional.app/Contents/Resources/Java</astahPath>
-
     <bundle.symbolicName>com.change_vision.astah.extension.plugin.mindmap-planner</bundle.symbolicName>
     <bundle.namespace>com.change_vision.astah.extension.plugin.mindmapplanner</bundle.namespace>
     <plugin.install>true</plugin.install>
+    <astah.version>6.6.4</astah.version>
+    <astah.edition>pro</astah.edition>
   </properties>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.change_vision.astah.extension.plugin</groupId>
   <artifactId>mindmap-planner</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <packaging>bundle</packaging>
   <name>%bundle.name</name>
   <description>%bundle.description</description>
