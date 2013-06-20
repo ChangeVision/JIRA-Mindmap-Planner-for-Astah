@@ -335,7 +335,7 @@
     <dependency>
       <groupId>com.github.jira</groupId>
       <artifactId>jira-commons</artifactId>
-      <version>0.1.0</version>
+      <version>0.1.1</version>
     </dependency>
     <dependency>
       <groupId>commons-io</groupId>
