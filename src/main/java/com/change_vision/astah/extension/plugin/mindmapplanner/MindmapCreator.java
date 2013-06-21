@@ -188,7 +188,9 @@ public class MindmapCreator {
 		for (Issue issue : issues) {
 			try {
 				INodePresentation topic = editor.createTopic(parentTopic, WordUtils.wrap(issue.getFields().getSummary(), 24, "\n", true), getPosition(issueNum, i++));
-				topic.createURLHyperlink(issue.getSelf().replace("rest/api/2/issue", "browse"), "Issue URL");
+				IssueHyperlinkTranslator translator = new IssueHyperlinkTranslator();
+				String url = translator.translate(issue);
+				topic.createURLHyperlink(url, "Issue URL");
 				createTopicOfIssueFields(topic, issue);
 			} catch (Exception e) {
 				logger.warn(e.getMessage(), e);
