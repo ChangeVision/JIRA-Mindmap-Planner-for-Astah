@@ -14,21 +14,28 @@ public class JiraUrlVerifier extends InputVerifier {
 
 	@Override
 	public boolean verify(JComponent c) {
-		boolean verified = false;
 		JTextField textField = (JTextField) c;
 		String text = textField.getText();
 		
-		if (text.matches("^http://.*|^https://.*")) {
-			verified = true;
-			textField.setBackground(Color.WHITE);
-			textField.setToolTipText("");
-		} else {
-			textField.setBackground(Color.PINK);
-			textField.setToolTipText(Messages.getMessage("validator.jira_url.invalid"));
-			UIManager.getLookAndFeel().provideErrorFeedback(c);
+		if (!text.matches("^http://.*|^https://.*")) {
+			showURLError(c, textField);
+			return false;
+		}
+
+		if (text.contains("browse")) {
+			showURLError(c, textField);
+			return false;
 		}
 		
-		return verified;
+		textField.setBackground(Color.WHITE);
+		textField.setToolTipText("");
+		return true;
+	}
+
+	private void showURLError(JComponent c, JTextField textField) {
+		textField.setBackground(Color.PINK);
+		textField.setToolTipText(Messages.getMessage("validator.jira_url.invalid"));
+		UIManager.getLookAndFeel().provideErrorFeedback(c);
 	}
 	
 //	public static void main(String[] args) {
