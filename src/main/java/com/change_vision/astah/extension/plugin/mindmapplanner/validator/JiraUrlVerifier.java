@@ -1,7 +1,5 @@
 package com.change_vision.astah.extension.plugin.mindmapplanner.validator;
 
-import java.awt.Color;
-
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
@@ -27,13 +25,13 @@ public class JiraUrlVerifier extends InputVerifier {
 			return false;
 		}
 		
-		textField.setBackground(Color.WHITE);
+		textField.setBackground(UIManager.getColor("TextField.background").brighter());
 		textField.setToolTipText("");
 		return true;
 	}
 
 	private void showURLError(JComponent c, JTextField textField) {
-		textField.setBackground(Color.PINK);
+		textField.setBackground(UIManager.getColor("TextField.selectionBackground"));
 		textField.setToolTipText(Messages.getMessage("validator.jira_url.invalid"));
 		UIManager.getLookAndFeel().provideErrorFeedback(c);
 	}

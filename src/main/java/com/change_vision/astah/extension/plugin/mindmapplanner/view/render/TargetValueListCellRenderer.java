@@ -9,8 +9,7 @@ import javax.swing.ListCellRenderer;
 
 @SuppressWarnings("serial")
 public class TargetValueListCellRenderer extends JLabel implements ListCellRenderer {
-	private static final Color evenColor = new Color(240, 240, 255);
-	
+
 	public TargetValueListCellRenderer() {
 		setOpaque(true);
 	}
@@ -23,7 +22,9 @@ public class TargetValueListCellRenderer extends JLabel implements ListCellRende
 			setBackground(list.getSelectionBackground());
 		} else {
 			setForeground(list.getForeground());
-			setBackground((index % 2 == 0) ? evenColor : list.getBackground());
+			Color bgColor = list.getBackground();
+			Color darkerColor = (bgColor != null) ? bgColor.darker() : null;
+			setBackground((index % 2 == 0) ? bgColor : darkerColor);
 		}
 
 		return this;

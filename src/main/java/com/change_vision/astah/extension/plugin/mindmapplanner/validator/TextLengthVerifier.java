@@ -1,7 +1,5 @@
 package com.change_vision.astah.extension.plugin.mindmapplanner.validator;
 
-import java.awt.Color;
-
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
@@ -24,10 +22,10 @@ public class TextLengthVerifier extends InputVerifier {
 		int length = text.length();
 		if (MIN_LENGTH <= length && length <= MAX_LENGTH) {
 			verified = true;
-			textField.setBackground(Color.WHITE);
+			textField.setBackground(UIManager.getColor("TextField.background").brighter());
 			textField.setToolTipText("");
 		} else {
-			textField.setBackground(Color.PINK);
+			textField.setBackground(UIManager.getColor("TextField.selectionBackground"));
 			textField.setToolTipText(Messages.getMessage(MESSAGE_KEY, MIN_LENGTH, MAX_LENGTH));
 			UIManager.getLookAndFeel().provideErrorFeedback(c);
 		}
